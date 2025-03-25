@@ -9,6 +9,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body class="bg-gray-100 p-4">
+ 
+
     <div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
         <!-- Encabezado -->
         <div class="bg-blue-600 text-white p-4">
@@ -17,20 +19,6 @@
         </div>
 
         <!-- Formulario -->
-        <!-- <form id="especificacionesForm" class="p-4" novalidate> -->
-            <!-- Secciones del formulario (HTML anterior) - kept the same -->
-            <!-- [... Previous HTML content remains the same ...] -->
-
-            <!-- Botones -->
-            <!-- <div class="flex justify-center space-x-4">
-
-
-
-
-                <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Guardar</button>
-                <button type="button" id="generarPDF" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">Generar PDF</button>
-            </div>
-        </form> -->
         <form id="especificacionesForm" class="p-4">
             <!-- Sección de Información General -->
             <div class="mb-6">
@@ -57,93 +45,146 @@
                 </div>
             </div>
 
-            <!-- Sección de Imágenes -->
-            <div class="mb-6">
-                <h2 class="text-xl font-semibold mb-4">Imágenes del Proyecto</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block mb-1">Imagen Principal</label>
-                        <input type="file" name="imagen_principal" class="w-full p-2 border border-gray-300 rounded-lg" accept="image/*">
-                        <div id="preview_imagen_principal" class="mt-2 h-40 bg-gray-200 flex items-center justify-center">
-                            <span class="text-gray-500">Vista previa</span>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block mb-1">Imagen Secundaria</label>
-                        <input type="file" name="imagen_secundaria" class="w-full p-2 border border-gray-300 rounded-lg" accept="image/*">
-                        <div id="preview_imagen_secundaria" class="mt-2 h-40 bg-gray-200 flex items-center justify-center">
-                            <span class="text-gray-500">Vista previa</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
+            
             <!-- Sección a) Especificaciones técnicas -->
             <div class="mb-6">
                 <h2 class="text-xl font-semibold mb-4">a) Especificaciones técnicas</h2>
                 <div class="space-y-4">
                     <!-- Campo 1 -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- ALTURA DE TAZON -->
+                        
                         <label class="md:col-span-2">Altura del Tazón</label>
+                        
                         <div class="flex space-x-4">
-                            <label><input type="radio" name="altura_tazon" value="SI" class="mr-2" required>SI</label>
-                            <label><input type="radio" name="altura_tazon" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center">
+                                <input type="radio" name="altura_tazon" value="SI" class="mr-2" required>
+                                <span>SI</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="altura_tazon" value="NO" class="mr-2">
+                                <span>NO</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="altura_tazon" value="N/A" class="mr-2">
+                                <span>N/A</span>
+                            </label>
                         </div>
+                            
                     </div>
                     <!-- Campo 2 -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <label class="md:col-span-2">Distancia entre centro del tazón al centro de la tangente</label>
                         <div class="flex space-x-4">
-                            <label><input type="radio" name="distancia_centro" value="SI" class="mr-2" required>SI</label>
-                            <label><input type="radio" name="distancia_centro" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center">
+                                <input type="radio" name="distancia_centro" value="SI" class="mr-2" required>
+                                <span>SI</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="distancia_centro" value="NO" class="mr-2">
+                                    <span>NO</span> 
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="distancia_centro" value="N/A" class="mr-2">
+                                <span>N/A</span>
+                            </label>
                         </div>
                     </div>
                     <!-- Campo 3 -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <label class="md:col-span-2">Inclinación de la tangente</label>
                         <div class="flex space-x-4">
-                            <label><input type="radio" name="inclinacion_tangente" value="SI" class="mr-2" required>SI</label>
-                            <label><input type="radio" name="inclinacion_tangente" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center">
+                                <input type="radio" name="inclinacion_tangente" value="SI" class="mr-2" required>
+                                <span>SI</span>    
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="inclinacion_tangente" value="NO" class="mr-2">
+                                <span>NO</span>    
+                            </label >
+                            <label class="flex items-center">
+                                <input type="radio" name="inclinacion_tangente" value="N/A" class="mr-2">
+                                <span>N/A</span>
+                            </label>
                         </div>
                     </div>
                     <!-- Campo 4 -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <label class="md:col-span-2">Longitud de tangente</label>
                         <div class="flex space-x-4">
-                            <label><input type="radio" name="longitud_tangente" value="SI" class="mr-2" required>SI</label>
-                            <label><input type="radio" name="longitud_tangente" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center">
+                                <input type="radio" name="longitud_tangente" value="SI" class="mr-2" required>
+                               <span>SI</span> 
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="longitud_tangente" value="NO" class="mr-2">
+                               <span>NO</span> 
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="longitud_tangente" value="N/A" class="mr-2">
+                                <span>N/A</span>
+                            </label>
                         </div>
                     </div>
                     <!-- Campo 5 -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <label class="md:col-span-2">Barreno central</label>
                         <div class="flex space-x-4">
-                            <label><input type="radio" name="barreno_central" value="SI" class="mr-2" required>SI</label>
-                            <label><input type="radio" name="barreno_central" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center">
+                                <input type="radio" name="barreno_central" value="SI" class="mr-2" required>
+                                <span>SI</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="barreno_central" value="NO" class="mr-2">
+                                <span>NO</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="barreno_central" value="N/A" class="mr-2">
+                                <span>N/A</span>
+                            </label>
                         </div>
                     </div>
                     <!-- Campo 6 -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <label class="md:col-span-2">Tornillería</label>
                         <div class="flex space-x-4">
-                            <label><input type="radio" name="tornilleria" value="SI" class="mr-2" required>SI</label>
-                            <label><input type="radio" name="tornilleria" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center">
+                                <input type="radio" name="tornilleria" value="SI" class="mr-2" required>
+                                <span>SI</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="tornilleria" value="NO" class="mr-2">
+                                <span>NO</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="tornilleria" value="N/A" class="mr-2">
+                                <span>N/A</span>
+                            </label>
                         </div>
                     </div>
                     <!-- Campo 7 -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <label class="md:col-span-2">Placa para sensor de peso</label>
                         <div class="flex space-x-4">
-                            <label><input type="radio" name="placa_sensor" value="SI" class="mr-2" required>SI</label>
-                            <label><input type="radio" name="placa_sensor" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center"><input type="radio" name="placa_sensor" value="SI" class="mr-2" required><span>SI</span></label>
+                            <label class="flex items-center"><input type="radio" name="placa_sensor" value="NO" class="mr-2"><span>NO</span></label>
+                            <label class="flex items-center">
+                                <input type="radio" name="placa_sensor" value="N/A" class="mr-2">
+                                <span>N/A</span>
+                            </label>
                         </div>
                     </div>
                     <!-- Campo 8 -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <label class="md:col-span-2">Ubicación de la ranura y charola para evacuación de basura</label>
                         <div class="flex space-x-4">
-                            <label><input type="radio" name="ranura_charola" value="SI" class="mr-2" required>SI</label>
-                            <label><input type="radio" name="ranura_charola" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center"><input type="radio" name="ranura_charola" value="SI" class="mr-2" required><span>SI</span></label>
+                            <label class="flex items-center"><input type="radio" name="ranura_charola" value="NO" class="mr-2"><span>NO</span></label>
+                            <label class="flex items-center">
+                                <input type="radio" name="ranura_charola" value="N/A" class="mr-2">
+                                <span>N/A</span>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -162,32 +203,51 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <label class="md:col-span-2">Filos</label>
                         <div class="flex space-x-4">
-                            <label><input type="radio" name="filos" value="SI" class="mr-2" required>SI</label>
-                            <label><input type="radio" name="filos" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center"><input type="radio" name="filos" value="SI" class="mr-2" required><span>SI</span></label>
+                            <label class="flex items-center"><input type="radio" name="filos" value="NO" class="mr-2"><span>NO</span></label>
+                            <label class="flex items-center">
+                                <input type="radio" name="filos" value="N/A" class="mr-2">
+                                <span>N/A</span>
+                            </label>
                         </div>
                     </div>
                     <!-- Campo 2 -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <label class="md:col-span-2">Soldadura</label>
                         <div class="flex space-x-4">
-                            <label><input type="radio" name="soldadura" value="SI" class="mr-2" required>SI</label>
-                            <label><input type="radio" name="soldadura" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center"><input type="radio" name="soldadura" value="SI" class="mr-2" required><span>SI</span></label>
+                            <label class="flex items-center"><input type="radio" name="soldadura" value="NO" class="mr-2"><span>NO</span></label>
+                            <label class="flex items-center">
+                                <input type="radio" name="soldadura" value="N/A" class="mr-2">
+                                <span>N/A</span>
+                            </label>
                         </div>
                     </div>
                     <!-- Campo 3 -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <label class="md:col-span-2">Manchas de decapante</label>
                         <div class="flex space-x-4">
-                            <label><input type="radio" name="manchas_decapante" value="SI" class="mr-2" required>SI</label>
-                            <label><input type="radio" name="manchas_decapante" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center"><input type="radio" name="manchas_decapante" value="SI" class="mr-2" required> <span>SI</span> </label>
+                            <label class="flex items-center"><input type="radio" name="manchas_decapante" value="NO" class="mr-2"> <span>NO</span> </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="manchas_decapante" value="N/A" class="mr-2">
+                                <span>N/A</span>
+                            </label>
                         </div>
                     </div>
                     <!-- Campo 4 -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <label class="md:col-span-2">Acabado general</label>
                         <div class="flex space-x-4">
-                            <label><input type="radio" name="acabado_general" value="SI" class="mr-2" required>SI</label>
-                            <label><input type="radio" name="acabado_general" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center">
+                                <input type="radio" name="acabado_general" value="SI" class="mr-2" required>
+                                <span>SI</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="acabado_general" value="NO" class="mr-2">
+                                <span>NO</span>
+                            </label>
+                            <label class="flex items-center"> <input type="radio" name="acabado_general" value="N/A" class="mr-2"><span>N/A</span>                            </label>
                         </div>
                     </div>
                 </div>
@@ -208,6 +268,8 @@
                         <div class="flex space-x-4">
                             <label><input type="radio" name="piezas_minuto" value="SI" class="mr-2" required>SI</label>
                             <label><input type="radio" name="piezas_minuto" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center"> <input type="radio" name="piezas_minuto" value="N/A" class="mr-2"><span>N/A</span>                            </label>
+
                         </div>
                     </div>
                     <!-- Campo 2 -->
@@ -216,6 +278,8 @@
                         <div class="flex space-x-4">
                             <label><input type="radio" name="cadencia_equipo" value="SI" class="mr-2" required>SI</label>
                             <label><input type="radio" name="cadencia_equipo" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center"> <input type="radio" name="cadencia_equipo" value="N/A" class="mr-2"><span>N/A</span>                            </label>
+
                         </div>
                     </div>
                     <!-- Campo 3 -->
@@ -224,6 +288,8 @@
                         <div class="flex space-x-4">
                             <label><input type="radio" name="vibracion_uniforme" value="SI" class="mr-2" required>SI</label>
                             <label><input type="radio" name="vibracion_uniforme" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center"> <input type="radio" name="vibracion_uniforme" value="N/A" class="mr-2"><span>N/A</span>                            </label>
+
                         </div>
                     </div>
                     <!-- Campo 4 -->
@@ -232,6 +298,8 @@
                         <div class="flex space-x-4">
                             <label><input type="radio" name="ajuste_contrapesos" value="SI" class="mr-2" required>SI</label>
                             <label><input type="radio" name="ajuste_contrapesos" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center"> <input type="radio" name="ajuste_contrapesos" value="N/A" class="mr-2"><span>N/A</span>                            </label>
+
                         </div>
                     </div>
                     <!-- Campo 5 -->
@@ -240,6 +308,8 @@
                         <div class="flex space-x-4">
                             <label><input type="radio" name="soluciones_mecanicas" value="SI" class="mr-2" required>SI</label>
                             <label><input type="radio" name="soluciones_mecanicas" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center"> <input type="radio" name="soluciones_mecanicas" value="N/A" class="mr-2"><span>N/A</span>                            </label>
+
                         </div>
                     </div>
                     <!-- Campo 6 -->
@@ -248,6 +318,8 @@
                         <div class="flex space-x-4">
                             <label><input type="radio" name="vaciado_tazon" value="SI" class="mr-2" required>SI</label>
                             <label><input type="radio" name="vaciado_tazon" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center"> <input type="radio" name="vaciado_tazon" value="N/A" class="mr-2"><span>N/A</span>                            </label>
+
                         </div>
                     </div>
                     <!-- Campo 7 -->
@@ -256,6 +328,8 @@
                         <div class="flex space-x-4">
                             <label><input type="radio" name="pruebas_estres" value="SI" class="mr-2" required>SI</label>
                             <label><input type="radio" name="pruebas_estres" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center"> <input type="radio" name="pruebas_estres" value="N/A" class="mr-2"><span>N/A</span>                            </label>
+
                         </div>
                     </div>
                     <!-- Campo 8 -->
@@ -264,6 +338,8 @@
                         <div class="flex space-x-4">
                             <label><input type="radio" name="trampas" value="SI" class="mr-2" required>SI</label>
                             <label><input type="radio" name="trampas" value="NO" class="mr-2">NO</label>
+                            <label class="flex items-center"> <input type="radio" name="trampas" value="N/A" class="mr-2"><span>N/A</span>                            </label>
+
                         </div>
                     </div>
                 </div>
@@ -275,151 +351,39 @@
                 <textarea name="obs_funcionalidad" class="w-full p-2 border border-gray-300 rounded-lg" rows="4" placeholder="Escribe tus observaciones aquí..."></textarea>
             </div>
 
+             <!-- Sección de Imágenes -->
+             <div class="mb-6">
+                <h2 class="text-xl font-semibold mb-4">Imágenes del Proyecto</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block mb-1">Imagen Principal</label>
+                        <input type="file" name="imagen_principal" class="w-full p-2 border border-gray-300 rounded-lg" accept="image/*">
+                        <div id="preview_imagen_principal" class="mt-2 h-40 bg-gray-200 flex items-center justify-center">
+                            <span class="text-gray-500">Vista previa</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block mb-1">Imagen Secundaria</label>
+                        <input type="file" name="imagen_secundaria" class="w-full p-2 border border-gray-300 rounded-lg" accept="image/*">
+                        <div id="preview_imagen_secundaria" class="mt-2 h-40 bg-gray-200 flex items-center justify-center">
+                            <span class="text-gray-500">Vista previa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Botones -->
             <div class="flex justify-center space-x-4">
                 <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Guardar</button>
                 <button type="button" id="generarPDF" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">Generar PDF</button>
             </div>
+            
+
         </form>
     </div>
 
-    <script>
-        // Modular JavaScript
-        const ImageManager = {
-            imagenPrincipal: null,
-            imagenSecundaria: null,
-            
-            mostrarVistaPrevia: function(input, previewId) {
-                if (input.files && input.files[0]) {
-                    const reader = new FileReader();
-                    
-                    reader.onload = function(e) {
-                        const previewDiv = document.getElementById(previewId);
-                        previewDiv.innerHTML = '';
-                        
-                        const img = document.createElement('img');
-                        img.src = e.target.result;
-                        img.className = 'h-full w-auto mx-auto object-contain';
-                        
-                        previewDiv.appendChild(img);
-                        
-                        // Almacenar la imagen
-                        if (previewId === 'preview_imagen_principal') {
-                            ImageManager.imagenPrincipal = e.target.result;
-                        } else if (previewId === 'preview_imagen_secundaria') {
-                            ImageManager.imagenSecundaria = e.target.result;
-                        }
-                    };
-                    
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-        };
-
-        const FormValidator = {
-            validateForm: function(form) {
-                let isValid = true;
-                const requiredFields = form.querySelectorAll('[required]');
-                
-                requiredFields.forEach(field => {
-                    if (field.type === 'radio') {
-                        const radioGroup = form.querySelectorAll(`[name="${field.name}"]`);
-                        const isRadioSelected = Array.from(radioGroup).some(radio => radio.checked);
-                        
-                        if (!isRadioSelected) {
-                            isValid = false;
-                            this.highlightField(radioGroup[0]);
-                        } else {
-                            this.resetFieldHighlight(radioGroup[0]);
-                        }
-                    } else if (!field.value.trim()) {
-                        isValid = false;
-                        this.highlightField(field);
-                    } else {
-                        this.resetFieldHighlight(field);
-                    }
-                });
-                
-                return isValid;
-            },
-            
-            highlightField: function(field) {
-                const parent = field.closest('div');
-                if (parent) {
-                    parent.classList.add('border-red-500');
-                }
-                field.classList.add('border-red-500');
-            },
-            
-            resetFieldHighlight: function(field) {
-                const parent = field.closest('div');
-                if (parent) {
-                    parent.classList.remove('border-red-500');
-                }
-                field.classList.remove('border-red-500');
-            }
-        };
-
-        const PDFGenerator = {
-            generatePDF: function() {
-                const { jsPDF } = window.jspdf;
-                const doc = new jsPDF();
-                
-                // Previous PDF generation logic remains the same
-                // ... (all the PDF generation code from the previous script)
-                // Just replace direct references to document methods with this.getRadioValue, this.getTextValue
-                
-                // Example of method modifications:
-                getRadioValue = function(name) {
-                    const radios = document.getElementsByName(name);
-                    for (let i = 0; i < radios.length; i++) {
-                        if (radios[i].checked) {
-                            return radios[i].value;
-                        }
-                    }
-                    return '';
-                }
-                
-                getTextValue = function(name) {
-                    return document.getElementsByName(name)[0].value;
-                }
-            }
-        };
-
-        // Event Listeners
-        document.addEventListener('DOMContentLoaded', () => {
-            // Image preview listeners
-            document.querySelector('input[name="imagen_principal"]').addEventListener('change', function() {
-                ImageManager.mostrarVistaPrevia(this, 'preview_imagen_principal');
-            });
-            
-            document.querySelector('input[name="imagen_secundaria"]').addEventListener('change', function() {
-                ImageManager.mostrarVistaPrevia(this, 'preview_imagen_secundaria');
-            });
-            
-            // Form submission listener
-            document.getElementById('especificacionesForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                if (FormValidator.validateForm(this)) {
-                    alert('Datos guardados correctamente.');
-                } else {
-                    alert('Por favor, complete todos los campos requeridos.');
-                }
-            });
-            
-            // PDF generation listener
-            document.getElementById('generarPDF').addEventListener('click', function() {
-                // First validate the form
-                const form = document.getElementById('especificacionesForm');
-                
-                if (FormValidator.validateForm(form)) {
-                    PDFGenerator.generatePDF();
-                } else {
-                    alert('Por favor, complete todos los campos requeridos antes de generar el PDF.');
-                }
-            });
-        });
+    <script src="./script.js">
+        
     </script>
 </body>
 </html>
